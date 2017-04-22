@@ -13,14 +13,28 @@
       <p>Enter two numbers in the fields below.  Select an operator (+) (-) (*)
         (/) by clicking a button below.  Then click the "Calculate" button.</p>
       <form id="xAndY">
-        <input type="text" id="x" placeholder="enter a number"><span id="operator"></span>
-        <input type="text" id="y" placeholder="enter a number"><br><br>
+        <!--BASE MODE <input type="text" id="x" placeholder="enter a number"><span id="operator"></span> -->
+        <!--BASE MODE <input type="text" id="y" placeholder="enter a number"><br><br> -->
+        <button type="button" class="number-button">1</button>
+        <button type="button" class="number-button">2</button>
+        <button type="button" class="number-button">3</button>
+        <button type="button" class="number-button">4</button>
+        <button type="button" class="number-button">5</button>
+        <button type="button" class="number-button">6</button>
+        <button type="button" class="number-button">7</button>
+        <button type="button" class="number-button">8</button>
+        <button type="button" class="number-button">9</button>
+        <button type="button" class="number-button">0</button>
+        <div id="x"></div>
+        <div id="operator"></div>
+        <div id="y"></div>
       </form>
       <button type="text" id="add">Add (+)</button>
       <button type="text" id="subtract">Subtract (-)</button>
       <button type="text" id="multiply">Multiply (*)</button>
-      <button type="text"id="divide">Divide (/)</button><br><br>
-      <button type="button" id="calculate-button">Calculate</button><br>
+      <button type="text"id="divide">Divide (/)</button><br>
+      <br>
+      <button type="button" id="calculate-button">Calculate (=)</button><br>
     </div>
     <div id="output">
       <p>Answer:<span id="answer"></span></p>
@@ -32,22 +46,6 @@
 </html>
 
 
-<!--  The logic for the calculator needs to be housed on the Server, where the client
-side will take in the values and the type of mathematical
-operation. Each of the numerical values and
-type of mathematical operation will be bundled up in an object and then sent to
-the server via a POST. So when the object is sent, it should look something
-like this: { x: 3, y: 4, type: Add }
-
-Once the server receives it, build out logic to compute the numbers in 1 of 4
-different ways. Once the calculation is complete, it should be sent
-back down to the client side app where it should be displayed on the DOM.-->
-
-<!--HARD MODE:
-Convert the input fields for the two values to Buttons. So the experience would
-allow the user to click on a numerical button, then a mathematical operation,
-then a numerical button again. Then have an equal button that sends all of the
-information to the server.-->
 
 <!--PRO MODE:
 Create a delay from when the client receives the response from the Server, and

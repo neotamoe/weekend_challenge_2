@@ -1,6 +1,7 @@
 $(document).ready(onReady);
 
 function onReady() {
+  $('.number-button').on('click',makeNumber);
   $('#add').on('click', addOperator);
   $('#subtract').on('click', subtractOperator);
   $('#multiply').on('click', multiplyOperator);
@@ -8,6 +9,7 @@ function onReady() {
   $('#calculate-button').on('click', calculate);
   $('#clear-button').on('click', clearCalculator);
 }
+
 
 function addOperator() {
   $('#operator').text('+');
@@ -29,10 +31,22 @@ function divideOperator(){
   console.log('divide operator selected');
 }
 
+function makeNumber(){
+  if ( $('#x').is(':empty') ){
+    $('#x').append($(this).text());
+  } else if (($('#x').is(':empty')) || ($('#operator').is(':empty')) ){
+    $('#x').append($(this).text());
+  } else {
+    $('#y').append($(this).text());
+  }
+}
+
 function calculate(){
   var inputsToSend = {
-    input1: $('#x').val(),
-    input2: $('#y').val(),
+    // input1: $('#x').val(),  //used in base mode
+    // input2: $('#y').val(),  //used in base mode
+    input1: $('#x').text(),  //pro mode
+    input2: $('#y').text(),  //pro mode
     operator: $('#operator').text()
   };
   console.log('in calculate function: input1= '+ inputsToSend.input1 + ' input2= '+ inputsToSend.input2 + ' operator= ' +inputsToSend.operator);
@@ -67,6 +81,8 @@ function spanAnswer(){
 function clearCalculator() {
   $('#operator').empty();
   $('#answer').empty();
-  document.getElementById('xAndY').reset();
+  $('#x').empty();
+  $('#y').empty();
+  // document.getElementById('xAndY').reset();  //needed for base mode
   console.log('calculator cleared');
 }
