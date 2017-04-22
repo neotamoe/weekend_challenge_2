@@ -10,25 +10,20 @@ function onReady() {
   $('#clear-button').on('click', clearCalculator);
 }
 
-
 function addOperator() {  //places add operator on DOM
   $('#operator').text('+');
-  console.log('add operator selected');
 }
 
 function subtractOperator(){  //places subtract operator on DOM
   $('#operator').text('-');
-  console.log('subtract operator selected');
 }
 
 function multiplyOperator(){  //places multiply operator on DOM
   $('#operator').text('*');
-  console.log('multiply operator selected');
 }
 
 function divideOperator(){  //places divide operator on DOM
   $('#operator').text('/');
-  console.log('divide operator selected');
 }
 
 //used in hard/pro mode:
@@ -50,13 +45,13 @@ function calculate(){  //calculates value of x and y based on operator chosen
     input2: $('#y').text(),  //pro mode
     operator: $('#operator').text()
   };
-  console.log('in calculate function: input1= '+ inputsToSend.input1 + ' input2= '+ inputsToSend.input2 + ' operator= ' +inputsToSend.operator);
+  // console.log('in calculate function: input1= '+ inputsToSend.input1 + ' input2= '+ inputsToSend.input2 + ' operator= ' +inputsToSend.operator);
   $.ajax({  //sends x, y and operator to server
     url: '/inputs',
     type: 'POST',
     data: inputsToSend,
     success: function(response){
-      console.log('back from server with:', response);
+      // console.log('back from server with:', response);
       spanAnswer();  //see below
     }  //end success
   });  //end ajax
@@ -69,7 +64,7 @@ function spanAnswer(){
     url: '/total',
     type: 'POST',
     success: function( response ){
-      console.log( 'back from server with:', response);
+      // console.log( 'back from server with:', response);
       $( '#answer' ).empty();  // empty answer span
       //displays computing for three seconds before displaying answer
       $('#answer').text('computing');
