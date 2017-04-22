@@ -70,11 +70,14 @@ function spanAnswer(){
       console.log( 'back from server with:', response);
       // empty answer span
       $( '#answer' ).empty();
-      // loop through inventory and append each to outputDiv
-      $( '#answer' ).text(response.total);
+      $('#answer').text('computing');
+      setTimeout(function(){ 
+        $( '#answer' ).text(response.total);
+      }, 3000);
+
     } // end success
   }); // end ajax
-} // end getInventory
+} // end spanAnswer
 
 
 
