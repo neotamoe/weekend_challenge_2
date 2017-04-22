@@ -36,7 +36,12 @@ app.post('/inputs', function ( req, res ){
 
 app.post('/total', function( req, res ){
   console.log('received spanAnswer request');
-  answer = calculator(inputsFromClient.input1, inputsFromClient.input2, inputsFromClient.operator);
+  console.log('/total input1: ' +inputsFromClient.input1);
+  console.log('/total input 2: '+inputsFromClient.input2);
+  console.log('/total operator: '+inputsFromClient.operator);
+  x=parseFloat(inputsFromClient.input1);
+  y=parseFloat(inputsFromClient.input2);
+  answer = calculator(x, y, inputsFromClient.operator);
   console.log(answer);
   var answerToSend = {
     total: answer

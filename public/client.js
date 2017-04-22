@@ -45,14 +45,9 @@ function calculate(){
       spanAnswer();
     }  //end success
   });  //end ajax
-  // spanAnswer(); //having this here was throwing an error "uncaught reference error app not defined"
 }  //end calculate
 
 function spanAnswer(){
-//   app.get('/answerTotal', function( response ){
-//     $('#answer').text(response.answerToSend.total);
-//   });  //end function
-// }  //end spanAnswer
   // make ajax call to server for inputs converted to answer
   $.ajax({
     url: '/total',
@@ -71,6 +66,7 @@ function spanAnswer(){
 
 function clearCalculator() {
   $('#operator').empty();
+  $('#answer').empty();
   document.getElementById('xAndY').reset();
   console.log('calculator cleared');
 }
