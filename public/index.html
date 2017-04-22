@@ -2,24 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="public/jquery.min.js" charset="utf-8"></script>
+    <script src="jquery.min.js" charset="utf-8"></script>
     <script src="client.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Weekend Challenge Calculator</title>
   </head>
   <body>
     <h1>Weekend Challenge Calculator</h1>
     <div id="input">
-      <input type="text" id="x" placeholder="enter a number">
-      <input type="text" id="y" placeholder="enter a number">
-      <button type="button" id="calculate-button">Calculate</button>
-      <input type="radio" name="add" value="add" checked> Add (+)<br>
-      <input type="radio" name="subtract" value="subtract"> Subtract (-)<br>
-      <input type="radio" name="multiply" value="multiply"> Multiply (*)<br>
-      <input type="radio" name="multiply" value="divide"> Divide (/)<br>  
+      <p>Enter two numbers in the fields below.  Select an operator (+) (-) (*)
+        (/) by clicking a button below.  Then click the "Calculate" button.</p>
+      <form id="xAndY">
+        <input type="text" id="x" placeholder="enter a number"><span id="operator"></span>
+        <input type="text" id="y" placeholder="enter a number"><br><br>
+      </form>
+      <button type="text" id="add">Add (+)</button>
+      <button type="text" id="subtract">Subtract (-)</button>
+      <button type="text" id="multiply">Multiply (*)</button>
+      <button type="text"id="divide">Divide (/)</button><br><br>
+      <button type="button" id="calculate-button">Calculate</button><br>
     </div>
     <div id="output">
-
+      <p>Answer:<span id="answer"></span></p>
     </div>
     <div id="clear">
       <button type="button" id="clear-button">Clear</button>
@@ -29,18 +33,15 @@
 
 
 <!--  The logic for the calculator needs to be housed on the Server, where the client
-side will take in the values (in 2 input text fields) and the type of mathematical
-operation (selected using a button on the DOM). Each of the numerical values and
+side will take in the values and the type of mathematical
+operation. Each of the numerical values and
 type of mathematical operation will be bundled up in an object and then sent to
 the server via a POST. So when the object is sent, it should look something
 like this: { x: 3, y: 4, type: Add }
 
 Once the server receives it, build out logic to compute the numbers in 1 of 4
-different ways. The server should be able to handle Addition, Subtraction,
-Multiplication, and Division. Once the calculation is complete, it should be sent
-back down to the client side app where it should be displayed on the DOM.
-
-Finally, build a 'clear' button that resets the whole experience.-->
+different ways. Once the calculation is complete, it should be sent
+back down to the client side app where it should be displayed on the DOM.-->
 
 <!--HARD MODE:
 Convert the input fields for the two values to Buttons. So the experience would

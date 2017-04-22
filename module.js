@@ -1,8 +1,0 @@
-
-
-
-
-
-
-
-exports.module = calculator;
