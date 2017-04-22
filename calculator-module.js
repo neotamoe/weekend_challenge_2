@@ -1,14 +1,15 @@
 var answer;
 
 function calculator (x,y,operator){
-  if ($('#operator').text('+') === '+') {
+  if (operator === '+') {
     answer = x+y;
-  } else if ($('#operator').text('-') === '-') {
-    answer = x-y;
+    return answer;
+  } else if (($('#operator').text('-')) === '-') {
+    return (answer = x-y);
   } else if ($('#operator').text('*') === '*') {
-    answer = x*y;
+    return (answer = x*y);
   } else {
-    answer = x/y;
+    return (answer = x/y);
   }
 }
 

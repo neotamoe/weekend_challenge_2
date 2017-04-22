@@ -9,6 +9,7 @@ var calculator = require ('./calculator-module');
 var answer;
 var x;
 var y;
+var inputsFromClient;
 
 //uses
 app.use( express.static( 'public' ) );
@@ -20,34 +21,26 @@ app.listen(3003, function(){
 });
 
 app.post('/inputs', function ( req, res ){
-  console.log(req.body);
-  x=parseInt(req.body.x);
-  y=parseInt(req.body.y);
-  console.log('received from client:', x + 'and' + y);
-  res.sendStatus(201);
+  var inputs = req.body;
+  inputsFromClient=inputs;
+  console.log(inputs);
+  console.log('value of x is ' + inputs.input1);
+  console.log('value of y is ' + inputs.input2);
+  console.log('operator type is ' + inputs.operator);
+  x=parseFloat(inputs.input1);
+  y=parseFloat(inputs.input2);
+  console.log('received from client1:', x + 'and' + y +' and ' + inputs.operator);
+  res.sendStatus(200);
 });
 
 
-app.post('/calculating', function(req,res){
+app.post('/total', function( req, res ){
+  console.log('received spanAnswer request');
+  answer = calculator(inputsFromClient.input1, inputsFromClient.input2, inputsFromClient.operator);
+  console.log(answer);
   var answerToSend = {
+    total: answer
   };
+  console.log(answerToSend);
+  res.send(answerToSend);
 });
-// app.post('/checkGuesses', function ( req, res ){
-//   var guessesObj = req.body; // req.body = objectToSend
-//   console.log('received from client:', guessesObj );
-//   //logic
-//   checkGuesses(req.body.player1);
-//   checkGuesses(req.body.player2);
-//   checkGuesses(req.body.player3);
-//   checkGuesses(req.body.player4);
-//
-//   var objectToSend = {
-//     player1: checkGuesses(req.body.player1),
-//     player2: checkGuesses(req.body.player2),
-//     player3: checkGuesses(req.body.player3),
-//     player4: checkGuesses(req.body.player4)
-//   };
-//
-//   console.log(objectToSend);
-//   res.send(objectToSend);
-// });
