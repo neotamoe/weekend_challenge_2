@@ -10,14 +10,15 @@ var answer;  //will store calculated answer
 var x;
 var y;
 var inputsFromClient;
+var port = process.env.PORT || 3000;
 
 //uses
 app.use( express.static( 'public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 //server listening
-app.listen(3003, function(){
-  console.log('listening on port 3003');
+app.listen(port, function(){
+  console.log('listening on port: ', port);
 });
 
 //receives x, y and operator type from client and stores on server
